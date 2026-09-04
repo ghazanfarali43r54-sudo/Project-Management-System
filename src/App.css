@@ -1,0 +1,685 @@
+
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial;
+  background-color: #eef2f7;
+  color: #111827;
+}
+
+
+
+/* Navbar as left sidebar */
+.navbar {
+  width: 20%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  background-color: rgb(231, 241, 245);
+  padding: 24px 20px;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: blue;
+}
+
+.main-content {
+  width: 100%;
+  flex: 1;
+}
+
+/* App layout: sidebar navbar + main content side by side */
+.app-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Page container — fills all remaining width after the sidebar */
+.page {
+  height: 100%;
+  width: 100%;
+  padding: 0 16px 24px;
+}
+
+
+
+.page h2 {
+  /* margin-top: 32px; */
+  margin-bottom: 12px;
+}
+
+/* Toggle form button (Add Project/Goal/Task) */
+.toggle-form-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.toggle-form-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Form container */
+form {
+  width: 100%;
+  background-color: #c7ccd4;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Field wrapper */
+form > div {
+  background-color: #fae4c7;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #42212c;
+}
+
+/* Inputs, textarea, select */
+form input,
+form textarea,
+form select {
+  background-color: rgb(255, 255, 255);
+  color: #111827;
+  height: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Submit button */
+form button[type="submit"] {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+.goles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.select {
+  height: 40px;
+  width: 100%;
+  font-size: 0.9rem;
+  background-color: rgb(241, 241, 241);
+  color: #6b7280;
+}
+
+.task {
+  padding-bottom: 20px;
+}
+
+.select-task {
+  height: 40px;
+  width: 100%;
+  font-size: 0.9rem;
+  background-color: rgb(237, 234, 234);
+  color: #424345;
+}
+
+.title {
+  margin-top: 50px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blanchedalmond;
+  color: #5e1d1d;
+  font-weight: 600;
+  font-size: 50px;
+}
+
+/* Select above form (like "Select Project" on Goals page) */
+.page > label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.page > select {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  min-width: 200px;
+}
+
+/* Item cards (Project/Goal/Task list items) — excluding dashboard hierarchy blocks */
+.page > div > div:not(.project-block) {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.page > div > div h3,
+.project-block h3 {
+  margin: 0 0 6px 0;
+  color: #111827;
+}
+
+.page > div > div p,
+.project-block p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Edit / Delete buttons on list items */
+.page > div > div button,
+.project-block button,
+.goal-block button {
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.page > div > div button:first-of-type {
+  background-color: #fbbf24;
+  color: #1f2937;
+}
+
+.page > div > div button:first-of-type:hover {
+  background-color: #f59e0b;
+}
+
+.page > div > div button:last-of-type {
+  background-color: #ef4444;
+  color: white;
+}
+
+.page > div > div button:last-of-type:hover {
+  background-color: #dc2626;
+}
+
+/* Empty state text */
+.page > p {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Dashboard clickable stat cards — square grid layout */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dashboard-stats > div {
+  background-color: #f7f4f4;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 16px;
+}
+
+.page .dashboard-stats p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.dash {
+  height: 100px;
+  margin-bottom: 10px;
+  padding-top: 6px;
+}
+
+.All {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+/* ===== Hierarchy view: full-width collapsible bars ===== */
+.project-block {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Bar header: clickable name left, Edit/Delete at right corner */
+.block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #dfe7f3;
+}
+
+.goal-block .block-header {
+  background-color: #e8eef8;
+}
+
+.task-row .block-header {
+  background-color: #f1f4f9;
+}
+
+/* No harsh hover on clickable names — subtle light gray instead
+   (overrides the generic yellow/orange button hover) */
+.page .block-header .block-name {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  margin: -4px -8px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.page .block-header .block-name:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.page .block-header .block-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e40af;
+  cursor: pointer;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-block .block-name {
+  color: #1d4ed8;
+}
+
+.task-row .block-name {
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.block-arrow {
+  font-size: 0.75rem;
+  width: 14px;
+  flex-shrink: 0;
+}
+
+.page .block-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.page .block-actions button {
+  margin: 0;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.page .block-actions button:first-of-type {
+  background-color: #fbbf24;
+  color: #1f2937;
+}
+
+.page .block-actions button:first-of-type:hover {
+  background-color: #f59e0b;
+}
+
+.page .block-actions button:last-of-type {
+  background-color: #ef4444;
+  color: white;
+}
+
+.page .block-actions button:last-of-type:hover {
+  background-color: #dc2626;
+  
+}
+
+/* Expanded details panel */
+.block-details {
+  padding: 12px 16px 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.block-details p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.block-subheading {
+  margin: 14px 0 8px;
+  color: #1d4ed8;
+}
+
+/* Nested goal container */
+.goal-block {
+  margin: 10px 0 0 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #93c5fd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Nested task container */
+.task-row {
+  margin: 8px 0 0 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #fbbf24;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Status pill */
+.status-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: #dbeafe;
+  color: #1e40af;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Search bar */
+.search-bar {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Scrollable list container */
+.list-container {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Dashboard clickable stat cards */
+.stat-card {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 2px solid transparent;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card.active {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+/* Circular progress chart grid */
+.circle-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.circle-chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle-chart {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-chart-inner {
+  width: 76px;
+  height: 76px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-chart-percent {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.circle-chart-label {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+}
+
+/* ===== Responsive: Tablet & below — sidebar becomes top nav ===== */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .navbar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: static;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .page {
+    padding: 0 14px 20px;
+  }
+}
+
+/* ===== Responsive: Mobile ===== */
+@media (max-width: 480px) {
+  .page {
+    padding: 0 12px 16px;
+  }
+
+  .navbar {
+    gap: 12px;
+    padding: 12px 14px;
+    justify-content: center;
+  }
+
+  .dashboard-stats > div {
+    min-width: 100%;
+    aspect-ratio: auto;
+    padding: 12px;
+  }
+
+  .page .dashboard-stats p {
+    font-size: 1.1rem;
+  }
+
+  .circle-chart {
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle-chart-inner {
+    width: 60px;
+    height: 60px;
+  }
+
+  .circle-chart-percent {
+    font-size: 0.85rem;
+  }
+
+  /* .dash,
+  .All {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ 
+
+  } */
+
+  .goal-block {
+    margin-left: 8px;
+  }
+
+  /* Collapsible bars on mobile — let header wrap, keep buttons usable */
+  .block-header {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .page .block-header .block-name {
+    width: auto;
+  }
+
+  .page .block-actions button {
+    width: auto;
+  }
+
+  .page > div > div:not(.project-block) button {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .page > select {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* Inline edit form inside dashboard hierarchy */
+.inline-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #506fac;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.inline-edit-form input,
+.inline-edit-form textarea,
+.inline-edit-form select {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
